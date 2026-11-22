@@ -74,6 +74,11 @@ nav img{height:34px;width:auto}
 .bill .names{font-family:Anton,sans-serif;font-size:clamp(34px,6vw,72px);line-height:1.02;text-transform:uppercase;text-wrap:balance}
 .bill .names.sm{font-size:clamp(26px,4vw,44px)}
 .bill .names i{font-style:normal;color:var(--ink)}
+.lineup{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;justify-items:center;gap:clamp(12px,3vw,48px);max-width:960px;margin:8px auto 0}
+.lineup img{width:100%;height:clamp(34px,6vw,72px);object-fit:contain}
+.lineup.big img{height:clamp(44px,8vw,104px)}
+.lineup .wm{font-family:Anton,sans-serif;font-size:clamp(22px,4vw,50px);line-height:1;text-transform:uppercase;color:#000;white-space:nowrap}
+.lineup.big .wm{font-size:clamp(28px,5.5vw,72px)}
 .venues{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));align-items:center;justify-items:center;gap:clamp(10px,2.5vw,40px);margin:18px auto 0;max-width:1100px}
 .venues img{width:100%;height:clamp(26px,5vw,64px);object-fit:contain}
 .venues img.wide{height:clamp(22px,4vw,50px)}
@@ -179,11 +184,11 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 <section class="band poster" aria-labelledby="bill-h">
   <div class="wrap bill">
     <h2 id="bill-h" class="lab" style="font-family:Archivo,sans-serif;font-size:15px;font-weight:800;margin:0 0 6px">Supported</h2>
-    <div class="names">Rae Sremmurd <i>/</i> Borgore <i>/</i> Ship Wrek</div>
+    <div class="lineup big"><img src="media/artist-raesremmurd.png" alt="Rae Sremmurd"><img src="media/artist-borgore.png" alt="Borgore"><span class="wm">Ship Wrek</span></div>
     <p class="lab">Support from</p>
-    <div class="names sm">Adventure Club <i>/</i> Avello <i>/</i> M?stic</div>
+    <div class="lineup"><img src="media/artist-adventureclub.png" alt="Adventure Club"><img src="media/artist-avello.png" alt="Avello"><img src="media/artist-mystic.png" alt="M?stic"></div>
     <p class="lab">Collaborations</p>
-    <div class="names sm">Bonkers <i>/</i> Unnevn <i>/</i> Z3lla</div>
+    <div class="lineup"><span class="wm">Bonkers</span><span class="wm">Unnevn</span><img src="media/artist-z3lla.png" alt="Z3lla"></div>
     <p class="lab">Played at</p>
     <div class="venues">
       <img src="media/venue-fuku.png" alt="Fuku Sushi">
