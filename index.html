@@ -82,8 +82,9 @@ nav img{height:34px;width:auto}
 .rs2{width:clamp(28px,3.4vw,46px);right:max(20px,calc(50% - 470px));top:74%;animation-delay:calc(-1 * 60s / 130)}
 @keyframes shoot{0%{transform:translate(-10px,10px);opacity:.55}100%{transform:translate(10px,-10px);opacity:1}}
 @keyframes twinkle{0%{transform:scale(.6) rotate(-12deg);opacity:.6}100%{transform:scale(1.1) rotate(12deg);opacity:1}}
-.rule{display:block;width:180px;max-width:100%;height:clamp(12px,1.3vw,17px);background:linear-gradient(90deg,transparent 0 52%,var(--red) 52%),repeating-linear-gradient(135deg,var(--red) 0 4px,transparent 4px 9px);margin:-10px 0 24px;clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.2,.8,.2,1)}
+.rule{display:block;width:180px;max-width:100%;height:clamp(12px,1.3vw,17px);margin:-10px 0 24px;clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.2,.8,.2,1)}
 .rule.c{margin-left:auto;margin-right:auto}
+.rule svg{display:block;width:100%;height:100%}
 .rule.in{clip-path:inset(0 0 0 0)}
 .book .rule{margin:14px 0 0}
 .player{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 14px;align-items:center}
@@ -302,7 +303,7 @@ btn.addEventListener('click',()=>{au.paused?au.play().catch(()=>{}):au.pause()})
 const seek=e=>{const r=wv.getBoundingClientRect(),x=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width));au.currentTime=x*(au.duration||130.3);upd()};
 let drag=false;wv.addEventListener('pointerdown',e=>{drag=true;wv.setPointerCapture(e.pointerId);seek(e);if(au.paused)au.play().catch(()=>{})});wv.addEventListener('pointermove',e=>{if(drag)seek(e)});wv.addEventListener('pointerup',()=>drag=false);
 wv.addEventListener('keydown',e=>{if(e.key==='ArrowRight')au.currentTime+=5;else if(e.key==='ArrowLeft')au.currentTime-=5;else if(e.key===' '||e.key==='Enter'){e.preventDefault();btn.click()}upd()});}</script>
-<script>{const fit=()=>document.querySelectorAll('.rule').forEach(r=>{const h=r.previousElementSibling;if(!h)return;const g=document.createRange();g.selectNodeContents(h);r.style.width=Math.ceil(g.getBoundingClientRect().width)+'px'});fit();addEventListener('resize',fit);document.fonts&&document.fonts.ready.then(fit)}</script>
+<script>{const fit=()=>document.querySelectorAll('.rule').forEach(r=>{const h=r.previousElementSibling;if(!h)return;const g=document.createRange();g.selectNodeContents(h);const W=Math.ceil(g.getBoundingClientRect().width);r.style.width=W+'px';const H=r.clientHeight||14,P=Math.round(H*0.95),T=Math.round(P*0.5);let d='';let x=-H,x0=null;for(;x<W;x+=P){if(x+H>=W*0.5){x0=x;break}d+='M'+x+' '+H+'L'+(x+T)+' '+H+'L'+(x+T+H)+' 0L'+(x+H)+' 0Z'}if(x0===null)x0=W;d+='M'+x0+' '+H+'L'+(x0+H)+' 0L'+W+' 0L'+W+' '+H+'Z';r.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none"><defs><clipPath id="rc'+W+'"><rect width="'+W+'" height="'+H+'"/></clipPath></defs><path clip-path="url(#rc'+W+')" fill="#F93434" d="'+d+'"/></svg>'});fit();addEventListener('resize',fit);document.fonts&&document.fonts.ready.then(fit)}</script>
 <script>{const rs=document.querySelectorAll('.rule');if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.nextElementSibling.classList.add('in');io.unobserve(e.target)}}),{threshold:.9});rs.forEach(x=>io.observe(x.previousElementSibling))}else rs.forEach(x=>x.classList.add('in'))}</script>
 <script>{if(matchMedia("(prefers-reduced-motion: reduce)").matches){const a=document.getElementById("tailAnim");a&&a.remove()}}</script>
 <script async src="https://tally.so/widgets/embed.js" onload="Tally.loadEmbeds()"></script>
