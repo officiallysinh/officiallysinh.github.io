@@ -36,7 +36,8 @@ nav img{height:34px;width:auto}
 .links{display:flex;flex-wrap:wrap;gap:4px 22px;font-weight:500}
 .links a{text-decoration:none;color:var(--mute);padding:10px 0}
 .links a:hover,.links a:focus-visible{color:var(--ink)}
-.hero{position:relative;text-align:center;overflow:hidden;padding-top:clamp(36px,6vw,72px)}
+.hero{position:relative;text-align:center;overflow:hidden;padding-top:clamp(36px,6vw,72px);padding-bottom:clamp(56px,8vw,110px);background:linear-gradient(180deg,rgba(0,0,0,.66) 0%,rgba(0,0,0,.58) 45%,rgba(0,0,0,.85) 85%,#000 100%),url(media/hero-bg.jpg) 62% 30%/cover no-repeat;background-attachment:scroll,fixed}
+@media(max-width:900px),(hover:none){.hero{background-attachment:scroll,scroll}}
 .logo{position:relative;z-index:2;display:block;width:min(420px,72vw);height:auto;margin:0 auto;overflow:visible}
 .tag{position:relative;z-index:1;font-size:clamp(20px,2.4vw,26px);font-weight:700;margin:8px auto 6px;max-width:none}
 .where{position:relative;color:var(--mute);margin:0 auto 26px;max-width:none}
