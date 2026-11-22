@@ -113,6 +113,8 @@ h2:hover,.stat b:hover{animation:glitch .4s steps(2) 1}
 .pmeta b{display:block;font-size:16px;line-height:1.3}
 .sclink{display:inline-flex;align-items:center;gap:6px;color:var(--mute);font-size:14px;text-decoration:none;margin-top:4px}
 .sclink:hover,.sclink:focus-visible{color:#FF5500}
+.setlink{text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:3px}
+.setlink:hover strong,.setlink:focus-visible strong{color:var(--red)!important}
 .scico{width:18px;height:18px;fill:currentColor}
 .wave{grid-column:1/-1;position:relative;height:64px;touch-action:none}
 .wbars{position:absolute;inset:0;display:flex;align-items:center;gap:2px}
@@ -241,7 +243,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
           <div class="ptime"><span id="tcur">0:00</span><span id="tdur">2:10</span></div>
           <audio id="aud" src="media/fsmh-sinh-remix.mp3" preload="metadata"></audio>
         </div>
-        <p class="mute" style="margin:18px 0 0">Debut project <strong style="color:var(--ink)">Sinh City Vol. 1</strong>, a 4-track remix album, out February 2026.</p>
+        <p class="mute" style="margin:18px 0 0">Debut project <a class="setlink" href="https://soundcloud.com/officiallysinh/sets/sinh-city"><strong style="color:var(--ink)">Sinh City Vol. 1</strong></a>, a 4-track remix album, out February 2026.</p>
       </div>
     </div>
   </div>
