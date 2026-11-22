@@ -101,9 +101,11 @@ nav img{height:34px;width:auto}
 .tt:hover .ico,.tt:focus-visible .ico{fill:#fff;filter:drop-shadow(-2px -2px 0 #25F4EE) drop-shadow(2px 2px 0 #FE2C55)}.tt:hover,.tt:focus-visible{border-color:#FE2C55!important}
 .yt:hover .ico,.yt:focus-visible .ico{fill:#FF0000}.yt:hover,.yt:focus-visible{border-color:#FF0000!important}
 .lt:hover .ico,.lt:focus-visible .ico{fill:#43E660}.lt:hover,.lt:focus-visible{border-color:#43E660!important}
-.book{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;border-top:1px solid var(--line)}
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:start;border-top:1px solid var(--line)}
 .book h2{font-size:clamp(44px,7vw,88px);text-transform:uppercase;margin:0}
 .book h2 span{color:var(--red)}
+.formbox{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px 8px}
+.formbox iframe{display:block;width:100%;border:0;min-height:300px}
 footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;border-top:1px solid var(--line)}
 @media(max-width:900px){.socials{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.bio,.book,.biogrid,.cards,.media2{grid-template-columns:minmax(0,1fr)}.portrait{max-height:520px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.media{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -122,7 +124,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
   <p class="tag">Hip-hop classics reimagined with experimental bass.</p>
   <p class="where">Tucson, AZ and Chicago, IL. Pronounced "sin," rhymes with "win."</p>
   <div class="ctas">
-    <a class="btn solid" href="https://tally.so/r/7XLXYz">Book SINH</a>
+    <a class="btn solid" href="#booking">Book SINH</a>
     <a class="btn" href="https://soundcloud.com/officiallysinh">Listen on SoundCloud</a>
   </div>
 </header>
@@ -212,10 +214,18 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 
 <section class="band" id="booking">
   <div class="wrap book">
-    <h2>Book <span>SINH</span></h2>
-    <a class="btn solid" href="https://tally.so/r/7XLXYz">Booking inquiry form</a>
+    <div>
+      <h2>Book <span>SINH</span></h2>
+      <p class="mute" style="margin-top:16px">For shows, support slots, releases and press. Send the date, venue or outlet and a few details, and SINH will get back to you.</p>
+      <p class="mute">Form not loading? <a href="https://tally.so/r/7XLXYz" style="color:var(--ink)">Open it here</a>.</p>
+    </div>
+    <div class="formbox">
+      <iframe data-tally-src="https://tally.so/embed/7XLXYz?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="320" frameborder="0" marginheight="0" marginwidth="0" title="SINH booking inquiry"></iframe>
+    </div>
   </div>
 </section>
+<script async src="https://tally.so/widgets/embed.js" onload="Tally.loadEmbeds()"></script>
+<script>{const f=document.querySelector('iframe[data-tally-src]');setTimeout(()=>{if(!f.src)f.src=f.dataset.tallySrc},2500)}</script>
 
 <footer><span>SINH</span><span>Tucson, AZ and Chicago, IL</span></footer>
 </body>
