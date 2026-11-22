@@ -66,6 +66,22 @@ nav img{height:34px;width:auto}
 .track>span>span{display:block}
 .track span{color:var(--mute);font-size:14px}
 .track:hover b,.track:focus-visible b{color:var(--red)}
+.player{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 14px;align-items:center}
+.pbtn{width:52px;height:52px;border-radius:50%;border:0;background:var(--red);color:#000;display:grid;place-items:center;cursor:pointer;padding:0}
+.pbtn svg{width:20px;height:20px;fill:#000}
+.pbtn .i-pause{display:none}.player.playing .i-play{display:none}.player.playing .i-pause{display:block}
+.pbtn:hover,.pbtn:focus-visible{background:var(--ink)}
+.pmeta b{display:block;font-size:16px;line-height:1.3}
+.sclink{display:inline-flex;align-items:center;gap:6px;color:var(--mute);font-size:14px;text-decoration:none;margin-top:4px}
+.sclink:hover,.sclink:focus-visible{color:#FF5500}
+.scico{width:18px;height:18px;fill:currentColor}
+.wave{grid-column:1/-1;position:relative;height:64px;cursor:pointer;touch-action:none}
+.wbars{position:absolute;inset:0;display:flex;align-items:center;gap:2px}
+.wbars i{flex:1;min-width:0;background:#3a3a3a;border-radius:1px}
+.wfg{clip-path:inset(0 100% 0 0)}
+.wfg i{background:var(--red)}
+.wave:hover .wbars:not(.wfg) i{background:#555}
+.ptime{grid-column:1/-1;display:flex;justify-content:space-between;color:var(--mute);font-size:13px;font-variant-numeric:tabular-nums;margin-top:-4px}
 .poster{background:var(--red);color:var(--bg)}
 .poster h2{color:var(--bg)}
 .bill{text-align:center}
@@ -172,10 +188,16 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
       </div>
       <div class="card" id="music">
         <h3>Featured music</h3>
-        <a class="track" href="https://soundcloud.com/officiallysinh/father-stretch-my-hands-pt-1">
-          <span class="play" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4 2 L17 10 L4 18 Z" fill="#000"/></svg></span>
-          <span><b>Kanye West: Father Stretch My Hands Pt. 1 (SINH Remix)</b><span>100K+ plays on SoundCloud</span></span>
-        </a>
+        <div class="player" id="player">
+          <button class="pbtn" id="pbtn" aria-label="Play SINH remix"><svg viewBox="0 0 20 20" class="i-play"><path d="M5 3 L17 10 L5 17 Z"/></svg><svg viewBox="0 0 20 20" class="i-pause"><path d="M5 3h3.5v14H5zM11.5 3H15v14h-3.5z"/></svg></button>
+          <div class="pmeta">
+            <b>Kanye West: Father Stretch My Hands Pt. 1 (SINH Remix)</b>
+            <a class="sclink" href="https://soundcloud.com/officiallysinh/father-stretch-my-hands-pt-1"><svg class="scico" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.999 14.165c-.052 1.796-1.612 3.169-3.4 3.169h-8.18a.68.68 0 0 1-.675-.683V7.862a.747.747 0 0 1 .452-.724s.75-.513 2.333-.513a5.364 5.364 0 0 1 2.763.755 5.433 5.433 0 0 1 2.57 3.54c.282-.08.574-.121.868-.12.884 0 1.73.358 2.347.992s.948 1.49.922 2.373ZM10.721 8.421c.247 2.98.427 5.697 0 8.672a.264.264 0 0 1-.53 0c-.395-2.946-.22-5.718 0-8.672a.264.264 0 0 1 .53 0ZM9.072 9.448c.285 2.659.37 4.986-.006 7.655a.277.277 0 0 1-.55 0c-.331-2.63-.256-5.02 0-7.655a.277.277 0 0 1 .556 0Zm-1.663-.257c.27 2.726.39 5.171 0 7.904a.266.266 0 0 1-.532 0c-.38-2.69-.257-5.21 0-7.904a.266.266 0 0 1 .532 0Zm-1.647.77a26.108 26.108 0 0 1-.008 7.147.272.272 0 0 1-.542 0 27.955 27.955 0 0 1 0-7.147.275.275 0 0 1 .55 0Zm-1.67 1.769c.421 1.865.228 3.5-.029 5.388a.257.257 0 0 1-.514 0c-.21-1.858-.398-3.549 0-5.389a.272.272 0 0 1 .543 0Zm-1.655-.273c.388 1.897.26 3.508-.01 5.412-.026.28-.514.283-.54 0-.244-1.878-.347-3.54-.01-5.412a.283.283 0 0 1 .56 0Zm-1.668.911c.4 1.268.257 2.292-.026 3.572a.257.257 0 0 1-.514 0c-.241-1.262-.354-2.312-.023-3.572a.283.283 0 0 1 .563 0Z"/></svg>100K+ plays on SoundCloud</a>
+          </div>
+          <div class="wave" id="wave" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><div class="wbars" id="wbg"></div><div class="wbars wfg" id="wfg"></div></div>
+          <div class="ptime"><span id="tcur">0:00</span><span id="tdur">2:10</span></div>
+          <audio id="aud" src="media/fsmh-sinh-remix.mp3" preload="metadata"></audio>
+        </div>
         <p class="mute" style="margin:18px 0 0">Debut project <strong style="color:var(--ink)">Sinh City Vol. 1</strong>, a 4-track remix album, out February 2026.</p>
       </div>
     </div>
@@ -243,6 +265,16 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
     </div>
   </div>
 </section>
+<script>{const P=[0.408, 0.503, 0.553, 0.379, 0.511, 0.467, 0.55, 0.41, 0.452, 0.544, 0.454, 0.435, 0.477, 0.545, 0.74, 0.873, 0.746, 0.74, 0.704, 0.535, 0.825, 0.582, 0.847, 0.86, 0.871, 0.843, 0.432, 0.558, 0.642, 0.73, 0.772, 0.874, 0.799, 0.848, 0.882, 0.958, 0.902, 0.704, 0.807, 0.854, 0.848, 0.903, 0.933, 0.885, 0.993, 0.734, 0.689, 0.86, 0.889, 0.919, 0.923, 0.813, 0.79, 0.889, 0.764, 0.897, 0.93, 0.917, 0.701, 0.554, 0.453, 0.553, 0.736, 0.602, 0.874, 0.629, 0.725, 0.716, 0.757, 0.648, 0.774, 0.752, 0.817, 0.766, 0.701, 0.801, 0.808, 0.763, 0.686, 0.846, 0.699, 0.887, 0.873, 0.881, 0.846, 0.585, 0.593, 0.747, 0.925, 0.9, 0.849, 0.844, 0.853, 0.879, 0.948, 0.938, 0.805, 0.838, 0.897, 0.853, 0.912, 0.927, 0.884, 1.0, 0.842, 0.75, 0.718, 0.887, 0.951, 0.957, 0.857, 0.874, 0.838, 0.779, 0.91, 0.942, 0.916, 0.947, 0.622, 0.314, 0.3, 0.176, 0.073, 0.262, 0.249, 0.272, 0.231, 0.228, 0.195, 0.071, 0.178, 0.202, 0.211, 0.102, 0.06, 0.06, 0.06, 0.06, 0.06, 0.06];const bg=document.getElementById('wbg'),fg=document.getElementById('wfg');const draw=()=>{const n=Math.max(30,Math.min(P.length,Math.floor(bg.clientWidth/4)));const out=[];for(let k=0;k<n;k++){const i0=Math.floor(k*P.length/n),i1=Math.max(i0+1,Math.floor((k+1)*P.length/n));let m=0;for(let j=i0;j<i1;j++)m=Math.max(m,P[j]);out.push('<i style="height:'+Math.round(m*100)+'%"></i>')}const h=out.join('');bg.innerHTML=h;fg.innerHTML=h};draw();const wro=new ResizeObserver(draw);wro.observe(bg);
+const au=document.getElementById('aud'),pl=document.getElementById('player'),btn=document.getElementById('pbtn'),wv=document.getElementById('wave'),tc=document.getElementById('tcur'),td=document.getElementById('tdur');
+const fmt=t=>{t=Math.max(0,Math.floor(t||0));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
+const upd=()=>{const d=au.duration||130.3,p=au.currentTime/d;fg.style.clipPath='inset(0 '+(100-p*100)+'% 0 0)';tc.textContent=fmt(au.currentTime);wv.setAttribute('aria-valuenow',Math.round(p*100))};
+au.addEventListener('loadedmetadata',()=>{td.textContent=fmt(au.duration)});au.addEventListener('timeupdate',upd);
+au.addEventListener('play',()=>pl.classList.add('playing'));au.addEventListener('pause',()=>pl.classList.remove('playing'));au.addEventListener('ended',()=>{pl.classList.remove('playing');au.currentTime=0;upd()});
+btn.addEventListener('click',()=>{au.paused?au.play().catch(()=>{}):au.pause()});
+const seek=e=>{const r=wv.getBoundingClientRect(),x=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width));au.currentTime=x*(au.duration||130.3);upd()};
+let drag=false;wv.addEventListener('pointerdown',e=>{drag=true;wv.setPointerCapture(e.pointerId);seek(e);if(au.paused)au.play().catch(()=>{})});wv.addEventListener('pointermove',e=>{if(drag)seek(e)});wv.addEventListener('pointerup',()=>drag=false);
+wv.addEventListener('keydown',e=>{if(e.key==='ArrowRight')au.currentTime+=5;else if(e.key==='ArrowLeft')au.currentTime-=5;else if(e.key===' '||e.key==='Enter'){e.preventDefault();btn.click()}upd()});}</script>
 <script>{if(matchMedia("(prefers-reduced-motion: reduce)").matches){const a=document.getElementById("tailAnim");a&&a.remove()}}</script>
 <script async src="https://tally.so/widgets/embed.js" onload="Tally.loadEmbeds()"></script>
 <script>{const f=document.querySelector('iframe[data-tally-src]');setTimeout(()=>{if(!f.src)f.src=f.dataset.tallySrc},2500)}</script>
