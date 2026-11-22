@@ -88,10 +88,13 @@ nav img{height:34px;width:auto}
 .rule svg{display:block;width:100%;height:100%}
 .rule.in{clip-path:inset(0 0 0 0)}
 .book .rule{margin:14px 0 0}
-.hw{transition:color .15s;cursor:default}
+.hw{transition:color .15s}
 .hw:hover{color:var(--red)}
+html,body{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%202%20L3%2019%20L7.6%2014.8%20L10.6%2021.5%20L13.6%2020.2%20L10.6%2013.6%20L16.8%2013.6%20Z%22%20fill%3D%22%23F93434%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.2%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") 3 2,auto}
+a,button,[role=slider],.socials a,.wave{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%202%20L3%2019%20L7.6%2014.8%20L10.6%2021.5%20L13.6%2020.2%20L10.6%2013.6%20L16.8%2013.6%20Z%22%20fill%3D%22%23F93434%22%20stroke%3D%22%23FCFCFC%22%20stroke-width%3D%221.4%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") 3 2,pointer}
+.hw{cursor:inherit}
 .player{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 14px;align-items:center}
-.pbtn{width:52px;height:52px;border-radius:50%;border:0;background:var(--red);color:#000;display:grid;place-items:center;cursor:pointer;padding:0}
+.pbtn{width:52px;height:52px;border-radius:50%;border:0;background:var(--red);color:#000;display:grid;place-items:center;padding:0}
 .pbtn svg{width:20px;height:20px;fill:#000}
 .pbtn .i-pause{display:none}.player.playing .i-play{display:none}.player.playing .i-pause{display:block}
 .pbtn:hover,.pbtn:focus-visible{background:var(--ink)}
@@ -99,7 +102,7 @@ nav img{height:34px;width:auto}
 .sclink{display:inline-flex;align-items:center;gap:6px;color:var(--mute);font-size:14px;text-decoration:none;margin-top:4px}
 .sclink:hover,.sclink:focus-visible{color:#FF5500}
 .scico{width:18px;height:18px;fill:currentColor}
-.wave{grid-column:1/-1;position:relative;height:64px;cursor:pointer;touch-action:none}
+.wave{grid-column:1/-1;position:relative;height:64px;touch-action:none}
 .wbars{position:absolute;inset:0;display:flex;align-items:center;gap:2px}
 .wbars i{flex:1;min-width:0;background:#3a3a3a;border-radius:1px}
 .wfg{clip-path:inset(0 100% 0 0)}
