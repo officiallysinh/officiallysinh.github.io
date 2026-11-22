@@ -82,7 +82,7 @@ nav img{height:34px;width:auto}
 .rs2{width:clamp(28px,3.4vw,46px);right:max(20px,calc(50% - 470px));top:74%;animation-delay:calc(-1 * 60s / 130)}
 @keyframes shoot{0%{transform:translate(-10px,10px);opacity:.55}100%{transform:translate(10px,-10px);opacity:1}}
 @keyframes twinkle{0%{transform:scale(.6) rotate(-12deg);opacity:.6}100%{transform:scale(1.1) rotate(12deg);opacity:1}}
-.rule{display:block;width:clamp(120px,14vw,180px);height:auto;margin:-10px 0 24px;clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.2,.8,.2,1)}
+.rule{display:block;width:180px;max-width:100%;height:clamp(12px,1.3vw,17px);background:linear-gradient(90deg,transparent 0 52%,var(--red) 52%),repeating-linear-gradient(135deg,var(--red) 0 4px,transparent 4px 9px);margin:-10px 0 24px;clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.2,.8,.2,1)}
 .rule.c{margin-left:auto;margin-right:auto}
 .rule.in{clip-path:inset(0 0 0 0)}
 .book .rule{margin:14px 0 0}
@@ -194,7 +194,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
     <div class="biogrid">
       <img class="portrait" src="media/press-portrait.jpg" alt="SINH press portrait">
       <div>
-        <h2>Biography</h2><img class="rule" src="media/deco-lines.png" alt="">
+        <h2>Biography</h2><div class="rule" aria-hidden="true"></div>
         <p>When SINH moved to Arizona in 2023, he fell in love with the EDM scene instantly but missed the rap culture he grew up on. Taking inspiration from Tape B and Whethan, he blended years of beatmaking and hardstyle experience into a sonic world of his own: <em>SINH City</em>.</p>
       <p>His first notable support slots came in 2025, opening for Rae Sremmurd and Ship Wrek, followed by Borgore in January 2026. The next month, he released his remix of Kanye West's "Father Stretch My Hands Pt. 1," now past 100K plays, and Papajay brought him on stage to debut it live.</p>
       <p>SINH has kept that momentum going, sharpening his sound and releasing more remixes on SoundCloud, where he now pulls 50,000+ monthly plays. He has collaborated with Bonkers, Unnevn and Z3lla, received support from Adventure Club, Avello, M?stic and more, and performs across Arizona and Chicago.</p>
@@ -251,7 +251,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 <section class="band" id="live">
   <img class="st tw" src="media/deco-redstar.png" alt="" style="width:clamp(30px,3.4vw,46px);top:clamp(40px,6vw,86px);right:max(16px,calc(50% - 600px))"><img class="st sh" src="media/deco-diagstars.png" alt="" style="width:clamp(60px,7vw,96px);bottom:20px;left:max(8px,calc(50% - 660px))">
   <div class="wrap">
-    <h2>Live videos and photos</h2><img class="rule" src="media/deco-lines.png" alt="">
+    <h2>Live videos and photos</h2><div class="rule" aria-hidden="true"></div>
     <div class="media" id="media">
       <div class="feat"><video tabindex="-1" src="media/live-1.mp4" poster="media/poster-1.jpg" autoplay muted loop playsinline disablepictureinpicture preload="metadata" aria-label="SINH live highlight reel"></video></div>
       <img src="media/live-purple.jpg" alt="SINH on the decks under purple lights">
@@ -267,7 +267,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 
 <section class="band" id="links" style="padding-top:0">
   <div class="wrap">
-    <h2 style="text-align:center"><img class="hs tw" src="media/deco-redstar.png" alt="">Socials<img class="hs tw d2" src="media/deco-redstar.png" alt=""></h2><img class="rule c" src="media/deco-lines.png" alt="">
+    <h2 style="text-align:center"><img class="hs tw" src="media/deco-redstar.png" alt="">Socials<img class="hs tw d2" src="media/deco-redstar.png" alt=""></h2><div class="rule c" aria-hidden="true"></div>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs></svg>
     <div class="socials">
       <a class="sc" aria-label="SoundCloud" href="https://soundcloud.com/officiallysinh"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.999 14.165c-.052 1.796-1.612 3.169-3.4 3.169h-8.18a.68.68 0 0 1-.675-.683V7.862a.747.747 0 0 1 .452-.724s.75-.513 2.333-.513a5.364 5.364 0 0 1 2.763.755 5.433 5.433 0 0 1 2.57 3.54c.282-.08.574-.121.868-.12.884 0 1.73.358 2.347.992s.948 1.49.922 2.373ZM10.721 8.421c.247 2.98.427 5.697 0 8.672a.264.264 0 0 1-.53 0c-.395-2.946-.22-5.718 0-8.672a.264.264 0 0 1 .53 0ZM9.072 9.448c.285 2.659.37 4.986-.006 7.655a.277.277 0 0 1-.55 0c-.331-2.63-.256-5.02 0-7.655a.277.277 0 0 1 .556 0Zm-1.663-.257c.27 2.726.39 5.171 0 7.904a.266.266 0 0 1-.532 0c-.38-2.69-.257-5.21 0-7.904a.266.266 0 0 1 .532 0Zm-1.647.77a26.108 26.108 0 0 1-.008 7.147.272.272 0 0 1-.542 0 27.955 27.955 0 0 1 0-7.147.275.275 0 0 1 .55 0Zm-1.67 1.769c.421 1.865.228 3.5-.029 5.388a.257.257 0 0 1-.514 0c-.21-1.858-.398-3.549 0-5.389a.272.272 0 0 1 .543 0Zm-1.655-.273c.388 1.897.26 3.508-.01 5.412-.026.28-.514.283-.54 0-.244-1.878-.347-3.54-.01-5.412a.283.283 0 0 1 .56 0Zm-1.668.911c.4 1.268.257 2.292-.026 3.572a.257.257 0 0 1-.514 0c-.241-1.262-.354-2.312-.023-3.572a.283.283 0 0 1 .563 0Z"/></svg></a>
@@ -283,7 +283,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
   <img class="st sh" src="media/deco-diagstars.png" alt="" style="width:clamp(60px,7vw,100px);top:clamp(50px,7vw,96px);left:max(180px,calc(50% - 250px))">
   <div class="wrap book">
     <div>
-      <h2>Book <span>SINH</span></h2><img class="rule" src="media/deco-lines.png" alt="">
+      <h2>Book <span>SINH</span></h2><div class="rule" aria-hidden="true"></div>
       <p class="mute" style="margin-top:16px">For shows, support slots, releases and press. Send the date, venue or outlet and a few details, and SINH will get back to you.</p>
       <p class="mute">Form not loading? <a href="https://tally.so/r/7XLXYz" style="color:var(--ink)">Open it here</a>.</p>
     </div>
@@ -302,6 +302,7 @@ btn.addEventListener('click',()=>{au.paused?au.play().catch(()=>{}):au.pause()})
 const seek=e=>{const r=wv.getBoundingClientRect(),x=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width));au.currentTime=x*(au.duration||130.3);upd()};
 let drag=false;wv.addEventListener('pointerdown',e=>{drag=true;wv.setPointerCapture(e.pointerId);seek(e);if(au.paused)au.play().catch(()=>{})});wv.addEventListener('pointermove',e=>{if(drag)seek(e)});wv.addEventListener('pointerup',()=>drag=false);
 wv.addEventListener('keydown',e=>{if(e.key==='ArrowRight')au.currentTime+=5;else if(e.key==='ArrowLeft')au.currentTime-=5;else if(e.key===' '||e.key==='Enter'){e.preventDefault();btn.click()}upd()});}</script>
+<script>{const fit=()=>document.querySelectorAll('.rule').forEach(r=>{const h=r.previousElementSibling;if(!h)return;const g=document.createRange();g.selectNodeContents(h);r.style.width=Math.ceil(g.getBoundingClientRect().width)+'px'});fit();addEventListener('resize',fit);document.fonts&&document.fonts.ready.then(fit)}</script>
 <script>{const rs=document.querySelectorAll('.rule');if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.nextElementSibling.classList.add('in');io.unobserve(e.target)}}),{threshold:.9});rs.forEach(x=>io.observe(x.previousElementSibling))}else rs.forEach(x=>x.classList.add('in'))}</script>
 <script>{if(matchMedia("(prefers-reduced-motion: reduce)").matches){const a=document.getElementById("tailAnim");a&&a.remove()}}</script>
 <script async src="https://tally.so/widgets/embed.js" onload="Tally.loadEmbeds()"></script>
