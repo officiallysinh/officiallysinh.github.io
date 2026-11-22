@@ -312,6 +312,7 @@ wv.addEventListener('keydown',e=>{if(e.key==='ArrowRight')au.currentTime+=5;else
 <script>{const rs=document.querySelectorAll('.rule');if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.nextElementSibling.classList.add('in');io.unobserve(e.target)}}),{threshold:.9});rs.forEach(x=>io.observe(x.previousElementSibling))}else rs.forEach(x=>x.classList.add('in'))}</script>
 <script>{if(matchMedia("(prefers-reduced-motion: reduce)").matches){const a=document.getElementById("tailAnim");a&&a.remove()}}</script>
 <script async src="https://tally.so/widgets/embed.js" onload="Tally.loadEmbeds()"></script>
+<script>{if(!/github\.io$|^localhost$/.test(location.hostname)){const fb=document.querySelector('.formbox');fb.innerHTML='<a href="https://tally.so/r/7XLXYz" aria-label="Open booking form"><img src="media/form-preview.jpg" alt="Booking form: name, email address and message" style="width:100%;height:auto;display:block;border-radius:8px"></a>'}}</script>
 <script>{const f=document.querySelector('iframe[data-tally-src]');setTimeout(()=>{if(!f.src)f.src=f.dataset.tallySrc},2500)}</script>
 
 <footer><span><img class="hs tw" src="media/deco-redstar.png" alt="" style="width:16px;height:16px;margin:0 6px 0 0">SINH</span><span>Tucson, AZ and Chicago, IL</span></footer>
