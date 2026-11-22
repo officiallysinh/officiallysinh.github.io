@@ -66,6 +66,15 @@ nav img{height:34px;width:auto}
 .track>span>span{display:block}
 .track span{color:var(--mute);font-size:14px}
 .track:hover b,.track:focus-visible b{color:var(--red)}
+.band{position:relative}
+.band>.wrap{position:relative;z-index:1}
+.st{position:absolute;pointer-events:none;z-index:0;height:auto}
+.tw{animation:twinkle calc(2 * 60s / 130) ease-in-out infinite alternate}
+.sh{animation:shoot calc(4 * 60s / 130) ease-in-out infinite alternate}
+.d2{animation-delay:calc(-1 * 60s / 130)}
+.blk{filter:brightness(0)}
+.hs{display:inline-block;width:clamp(28px,3vw,40px);height:auto;vertical-align:middle;margin:0 14px;position:relative;top:-4px}
+@media(max-width:600px){.st.sh{opacity:.6}}
 .deco{position:absolute;pointer-events:none;z-index:1;height:auto}
 .ds{width:clamp(80px,11vw,150px);top:clamp(16px,4vw,48px);right:max(16px,calc(50% - 440px));animation:shoot calc(4 * 60s / 130) ease-in-out infinite alternate}
 .rs{animation:twinkle calc(2 * 60s / 130) ease-in-out infinite alternate}
@@ -145,7 +154,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 
 @media(max-width:760px){.bio,.book,.biogrid,.cards,.media2{grid-template-columns:minmax(0,1fr)}.portrait{max-height:520px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.media{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.links{display:none}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.deco{animation:none}.rule{clip-path:none;transition:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.deco,.st,.hs{animation:none}.rule{clip-path:none;transition:none}}
 </style>
 </head>
 <body>
@@ -180,6 +189,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 </section>
 
 <section class="band" id="bio">
+  <img class="st sh" src="media/deco-diagstars.png" alt="" style="width:clamp(70px,8vw,110px);top:24px;right:max(12px,calc(50% - 640px))"><img class="st tw" src="media/deco-redstar.png" alt="" style="width:clamp(40px,4.4vw,58px);bottom:40px;left:max(8px,calc(50% - 660px))">
   <div class="wrap">
     <div class="biogrid">
       <img class="portrait" src="media/press-portrait.jpg" alt="SINH press portrait">
@@ -219,6 +229,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 </section>
 
 <section class="band poster" aria-labelledby="bill-h">
+  <img class="st tw blk" src="media/deco-redstar.png" alt="" style="width:clamp(40px,5vw,64px);top:28px;left:max(12px,calc(50% - 600px))"><img class="st tw blk d2" src="media/deco-redstar.png" alt="" style="width:clamp(34px,3.6vw,50px);bottom:36px;right:max(12px,calc(50% - 580px))"><img class="st sh blk" src="media/deco-diagstars.png" alt="" style="width:clamp(70px,8vw,110px);top:24px;right:max(12px,calc(50% - 620px))">
   <div class="wrap bill">
     <h2 id="bill-h" class="lab" style="font-family:Archivo,sans-serif;font-size:15px;font-weight:800;margin:0 0 6px">Supported</h2>
     <div class="lineup big"><img src="media/artist-raesremmurd.png" alt="Rae Sremmurd"><img src="media/artist-borgore.png" alt="Borgore"><img src="media/artist-shipwrek.png" alt="Ship Wrek"></div>
@@ -238,6 +249,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 </section>
 
 <section class="band" id="live">
+  <img class="st tw" src="media/deco-redstar.png" alt="" style="width:clamp(30px,3.4vw,46px);top:clamp(40px,6vw,86px);right:max(16px,calc(50% - 600px))"><img class="st sh" src="media/deco-diagstars.png" alt="" style="width:clamp(60px,7vw,96px);bottom:20px;left:max(8px,calc(50% - 660px))">
   <div class="wrap">
     <h2>Live videos and photos</h2><img class="rule" src="media/deco-lines.png" alt="">
     <div class="media" id="media">
@@ -255,7 +267,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 
 <section class="band" id="links" style="padding-top:0">
   <div class="wrap">
-    <h2 style="text-align:center">Socials</h2><img class="rule c" src="media/deco-lines.png" alt="">
+    <h2 style="text-align:center"><img class="hs tw" src="media/deco-redstar.png" alt="">Socials<img class="hs tw d2" src="media/deco-redstar.png" alt=""></h2><img class="rule c" src="media/deco-lines.png" alt="">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs></svg>
     <div class="socials">
       <a class="sc" aria-label="SoundCloud" href="https://soundcloud.com/officiallysinh"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.999 14.165c-.052 1.796-1.612 3.169-3.4 3.169h-8.18a.68.68 0 0 1-.675-.683V7.862a.747.747 0 0 1 .452-.724s.75-.513 2.333-.513a5.364 5.364 0 0 1 2.763.755 5.433 5.433 0 0 1 2.57 3.54c.282-.08.574-.121.868-.12.884 0 1.73.358 2.347.992s.948 1.49.922 2.373ZM10.721 8.421c.247 2.98.427 5.697 0 8.672a.264.264 0 0 1-.53 0c-.395-2.946-.22-5.718 0-8.672a.264.264 0 0 1 .53 0ZM9.072 9.448c.285 2.659.37 4.986-.006 7.655a.277.277 0 0 1-.55 0c-.331-2.63-.256-5.02 0-7.655a.277.277 0 0 1 .556 0Zm-1.663-.257c.27 2.726.39 5.171 0 7.904a.266.266 0 0 1-.532 0c-.38-2.69-.257-5.21 0-7.904a.266.266 0 0 1 .532 0Zm-1.647.77a26.108 26.108 0 0 1-.008 7.147.272.272 0 0 1-.542 0 27.955 27.955 0 0 1 0-7.147.275.275 0 0 1 .55 0Zm-1.67 1.769c.421 1.865.228 3.5-.029 5.388a.257.257 0 0 1-.514 0c-.21-1.858-.398-3.549 0-5.389a.272.272 0 0 1 .543 0Zm-1.655-.273c.388 1.897.26 3.508-.01 5.412-.026.28-.514.283-.54 0-.244-1.878-.347-3.54-.01-5.412a.283.283 0 0 1 .56 0Zm-1.668.911c.4 1.268.257 2.292-.026 3.572a.257.257 0 0 1-.514 0c-.241-1.262-.354-2.312-.023-3.572a.283.283 0 0 1 .563 0Z"/></svg></a>
@@ -268,6 +280,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 </section>
 
 <section class="band" id="booking">
+  <img class="st sh" src="media/deco-diagstars.png" alt="" style="width:clamp(60px,7vw,100px);top:clamp(50px,7vw,96px);left:max(180px,calc(50% - 250px))">
   <div class="wrap book">
     <div>
       <h2>Book <span>SINH</span></h2><img class="rule" src="media/deco-lines.png" alt="">
@@ -294,6 +307,6 @@ wv.addEventListener('keydown',e=>{if(e.key==='ArrowRight')au.currentTime+=5;else
 <script async src="https://tally.so/widgets/embed.js" onload="Tally.loadEmbeds()"></script>
 <script>{const f=document.querySelector('iframe[data-tally-src]');setTimeout(()=>{if(!f.src)f.src=f.dataset.tallySrc},2500)}</script>
 
-<footer><span>SINH</span><span>Tucson, AZ and Chicago, IL</span></footer>
+<footer><span><img class="hs tw" src="media/deco-redstar.png" alt="" style="width:16px;height:16px;margin:0 6px 0 0">SINH</span><span>Tucson, AZ and Chicago, IL</span></footer>
 </body>
 </html>
