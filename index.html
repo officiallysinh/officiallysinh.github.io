@@ -38,7 +38,11 @@ nav img{height:34px;width:auto}
 .links a:hover,.links a:focus-visible{color:var(--ink)}
 .hero{position:relative;text-align:center;overflow:hidden;padding-top:clamp(36px,6vw,72px)}
 .hero::before{content:"";position:absolute;left:50%;top:42%;width:min(1100px,140vw);aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(249,52,52,.28),rgba(249,52,52,.08) 55%,transparent 75%);pointer-events:none}
-.logo{position:relative;width:min(560px,82vw);margin:0 auto}
+.logo{position:relative;width:min(560px,82vw);margin:0 auto;aspect-ratio:1400/1319}
+.logo img{position:absolute;inset:0;width:100%;height:100%}
+.lg-body{clip-path:inset(0 0 39.8% 0)}
+.lg-tail{clip-path:inset(60% 0 0 0);transform-origin:64.9% 60%;animation:swish calc(4 * 60s / 130) ease-in-out infinite alternate}
+@keyframes swish{0%{transform:rotate(-4deg)}100%{transform:rotate(3deg)}}
 .tag{position:relative;font-size:clamp(20px,2.4vw,26px);font-weight:700;margin:28px auto 6px;max-width:none}
 .where{position:relative;color:var(--mute);margin:0 auto 26px;max-width:none}
 .ctas{position:relative;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
@@ -110,7 +114,7 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 @media(max-width:900px){.socials{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.bio,.book,.biogrid,.cards,.media2{grid-template-columns:minmax(0,1fr)}.portrait{max-height:520px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.media{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.links{display:none}.socials{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.lg-tail{animation:none}}
 </style>
 </head>
 <body>
@@ -120,7 +124,10 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 </div></nav>
 
 <header class="band hero" id="top">
-  <img class="logo" src="media/sinh-logo.png" alt="SINH logo with devil horns and tail">
+  <div class="logo" role="img" aria-label="SINH logo with devil horns and tail">
+    <img class="lg-body" src="media/sinh-logo.png" alt="">
+    <img class="lg-tail" src="media/sinh-logo.png" alt="">
+  </div>
   <p class="tag">Hip-hop classics reimagined with experimental bass.</p>
   <p class="where">Tucson, AZ and Chicago, IL. Pronounced "sin," rhymes with "win."</p>
   <div class="ctas">
