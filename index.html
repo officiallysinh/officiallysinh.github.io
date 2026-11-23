@@ -9,7 +9,7 @@
 <meta property="og:description" content="Hip-hop classics reimagined with experimental bass. Tucson, AZ and Chicago, IL.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 /* VOICE occasion: a show flyer for promoters and labels, loud but composed
    IDEA a club night poster: the logo as headliner, a lineup of who he's shared stages with
@@ -176,6 +176,49 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 @media(max-width:760px){.bio,.book,.cards{grid-template-columns:minmax(0,1fr)}.biogrid{display:flow-root}.biogrid>div{display:contents}.portrait{float:left;width:42%;max-width:200px;margin:4px 16px 10px 0}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 @media(max-width:600px){nav .in{gap:10px}nav img{height:28px}.links{flex-wrap:nowrap;overflow-x:auto;gap:0 14px;font-size:14px;scrollbar-width:none}.links::-webkit-scrollbar{display:none}.links a{white-space:nowrap;padding:12px 0}}
 @media(prefers-reduced-motion:reduce){#grain{display:none}.lineup img,.lineup .wm,.venues img{opacity:1;scale:1}h2:hover,.stat b:hover{animation:none}html{scroll-behavior:auto}.deco,.st,.hs{animation:none}.rule{clip-path:none;transition:none}}
+
+/* vintage camera roll */
+.cam{max-width:920px;margin:0 auto;background:linear-gradient(180deg,#2b2b2d,#161617 60%,#0e0e0f);border:1px solid #333;border-radius:26px;padding:16px clamp(12px,2.4vw,26px) 18px;box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.12),inset 0 -2px 0 rgba(0,0,0,.6)}
+.cam-top{display:flex;align-items:center;gap:12px;padding:0 6px 12px}
+.cam-brand{font-family:Anton,sans-serif;letter-spacing:.04em;font-size:20px;color:var(--ink)}
+.cam-model{font-size:13px;color:var(--gray);font-weight:700}
+.cam-shutter{margin-left:auto;width:34px;height:14px;border-radius:8px;background:linear-gradient(180deg,#ff6b6b,var(--red) 50%,#b81f1f);box-shadow:0 2px 0 #5a0d0d,inset 0 1px 0 rgba(255,255,255,.4)}
+.lcd{position:relative;aspect-ratio:3/2;border-radius:10px;overflow:hidden;background:#050505;border:6px solid #0a0a0a;box-shadow:inset 0 0 0 1px #3a3a3a,0 0 0 1px #000}
+@media(min-width:900px){.lcd{aspect-ratio:16/9}}
+.roll{position:absolute;inset:0;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.roll::-webkit-scrollbar{display:none}
+.roll:focus-visible{outline:3px solid var(--red);outline-offset:-3px}
+.shot{flex:0 0 100%;margin:0;scroll-snap-align:center;scroll-snap-stop:always;position:relative;overflow:hidden}
+.shot img,.shot video{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.28) saturate(1.4) contrast(1.14) brightness(1.03) hue-rotate(-8deg) blur(.35px)}
+.fx{position:absolute;inset:0;pointer-events:none;background:
+ radial-gradient(120% 90% at 50% 50%,transparent 55%,rgba(0,0,0,.6) 100%),
+ linear-gradient(115deg,rgba(255,120,40,.22),transparent 28%,transparent 75%,rgba(255,60,90,.14)),
+ repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);mix-blend-mode:normal}
+.fx::after{content:"";position:absolute;inset:0;background:rgba(255,190,120,.06);mix-blend-mode:overlay;animation:flick 3.2s steps(1) infinite}
+@keyframes flick{0%,100%{opacity:1}47%{opacity:.4}48%{opacity:1}83%{opacity:.7}}
+.lcd.chg .roll{animation:blip .28s steps(2)}
+@keyframes blip{0%{filter:brightness(1.8) contrast(.7)}100%{filter:none}}
+.hud{position:absolute;inset:0;pointer-events:none;font-family:VT323,monospace;color:#f4f4f4;text-shadow:0 0 4px rgba(0,0,0,.9),1px 1px 0 #000;font-size:clamp(17px,2.6vw,26px);line-height:1}
+.hud>span{position:absolute}
+.h-mode{top:4%;left:4%}
+.h-mode.rec{color:#ff4d4d}
+.h-mode.rec::first-letter{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.h-file{top:4%;left:50%;transform:translateX(-50%)}
+.h-batt{top:4.5%;right:4%;width:1.5em;height:.7em;border:2px solid #f4f4f4;border-radius:2px;box-shadow:0 0 3px #000}
+.h-batt::after{content:"";position:absolute;right:-5px;top:25%;width:3px;height:50%;background:#f4f4f4}
+.h-batt i{position:absolute;inset:1px;right:30%;background:#f4f4f4}
+.h-count{bottom:5%;left:4%}
+.h-stamp{bottom:5%;right:4%;color:#ff9a2e;text-shadow:0 0 6px rgba(255,120,0,.85),0 0 1px #ff6a00;font-size:1.15em;letter-spacing:.04em}
+.cam-ctrl{display:flex;align-items:center;justify-content:center;gap:clamp(14px,3vw,28px);padding-top:16px}
+.cbtn{width:52px;height:52px;border-radius:50%;border:0;background:radial-gradient(circle at 35% 30%,#4a4a4d,#1d1d1f 70%);box-shadow:0 3px 0 #000,inset 0 1px 0 rgba(255,255,255,.15);display:grid;place-items:center;padding:0}
+.cbtn svg{width:18px;height:18px;fill:var(--ink)}
+.cbtn:hover svg,.cbtn:focus-visible svg{fill:var(--red)}
+.cbtn:active{transform:translateY(2px);box-shadow:0 1px 0 #000}
+.dots{display:flex;gap:8px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#3a3a3a;transition:background .2s}
+.dots i.on{background:var(--red);box-shadow:0 0 6px var(--red)}
+@media(prefers-reduced-motion:reduce){.fx::after,.h-mode.rec::first-letter{animation:none}.lcd.chg .roll{animation:none}}
 </style>
 </head>
 <body>
@@ -273,15 +316,32 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
   <img class="st tw" src="media/deco-redstar.png" alt="" style="width:clamp(30px,3.4vw,46px);top:clamp(40px,6vw,86px);right:max(16px,calc(50% - 600px))"><img class="st sh" src="media/deco-diagstars.png" alt="" style="width:clamp(60px,7vw,96px);bottom:20px;left:max(8px,calc(50% - 660px))">
   <div class="wrap">
     <h2>Live videos and photos</h2><div class="rule" aria-hidden="true"></div>
-    <div class="media" id="media">
-      <div class="feat"><video tabindex="-1" src="media/live-1.mp4" poster="media/poster-1.jpg" autoplay muted loop playsinline disablepictureinpicture preload="metadata" aria-label="SINH live highlight reel"></video></div>
-      <img src="media/live-purple.jpg" alt="SINH on the decks under purple lights">
-      <video tabindex="-1" src="media/live-2.mp4" poster="media/poster-2.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Crowd at a SINH set"></video>
-      <img src="media/live-stage.jpg" alt="SINH dancing on stage in front of the crowd">
+    <div class="cam" id="cam">
+      <div class="cam-top" aria-hidden="true"><span class="cam-brand">SINH</span><span class="cam-model">DIGITAL&nbsp;3.2MP</span><span class="cam-shutter"></span></div>
+      <div class="lcd">
+        <div class="roll" id="roll" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Live photos and videos. Use left and right arrows to browse.">
+        <figure class="shot" data-kind="video" data-stamp="'26 01 16"><video src="media/live-1.mp4" poster="media/poster-1.jpg" muted loop playsinline disablepictureinpicture preload="metadata" aria-label="SINH live highlight reel"></video></figure>
+        <figure class="shot" data-kind="img" data-stamp="'24 08 23"><img style="object-position:50% 75%;transform:scale(1.09);transform-origin:50% 100%" src="media/live-purple.jpg" alt="SINH on the decks under purple lights" loading="lazy"></figure>
+        <figure class="shot" data-kind="video" data-stamp="'26 01 16"><video src="media/live-2.mp4" poster="media/poster-2.jpg" muted loop playsinline disablepictureinpicture preload="metadata" aria-label="Crowd at a SINH set"></video></figure>
+        <figure class="shot" data-kind="img" data-stamp="'26 01 16"><img src="media/live-stage.jpg" alt="SINH dancing on stage in front of the crowd" loading="lazy"></figure>
+        <figure class="shot" data-kind="img" data-stamp="'25 11 26"><img src="media/live-red.jpg" alt="SINH behind the decks with hands up in the crowd" loading="lazy"></figure>
+        <figure class="shot" data-kind="video" data-stamp="'24 09 29"><video src="media/live-3.mp4" poster="media/poster-3.jpg" muted loop playsinline disablepictureinpicture preload="metadata" aria-label="SINH playing to a packed room"></video></figure>
+        </div>
+        <div class="fx" aria-hidden="true"></div>
+        <div class="hud" aria-hidden="true">
+          <span class="h-mode" id="hmode">&#9654; PLAY</span>
+          <span class="h-file" id="hfile">100-0001</span>
+          <span class="h-batt"><i></i></span>
+          <span class="h-count" id="hcount">1/6</span>
+          <span class="h-stamp" id="hstamp">'26 01 16</span>
+        </div>
+      </div>
+      <div class="cam-ctrl">
+        <button class="cbtn" id="cprev" aria-label="Previous photo"><svg viewBox="0 0 20 20"><path d="M13 3 L5 10 L13 17Z"/></svg></button>
+        <div class="dots" id="dots" aria-hidden="true"></div>
+        <button class="cbtn" id="cnext" aria-label="Next photo"><svg viewBox="0 0 20 20"><path d="M7 3 L15 10 L7 17Z"/></svg></button>
+      </div>
     </div>
-    <div class="media2">
-      <img src="media/live-red.jpg" alt="SINH behind the decks with hands up in the crowd">
-      <video tabindex="-1" src="media/live-3.mp4" poster="media/poster-3.jpg" autoplay muted loop playsinline preload="metadata" aria-label="SINH playing to a packed room"></video>
     </div>
   </div>
 </section>
@@ -361,6 +421,22 @@ addEventListener('pointermove',e=>{mags.forEach(m=>{const r=m.getBoundingClientR
 <script>{if(!/github\.io$|^localhost$/.test(location.hostname)){const fb=document.querySelector('.formbox');fb.innerHTML='<a href="https://tally.so/r/7XLXYz" aria-label="Open booking form"><img src="media/form-preview.jpg" alt="Booking form: name, email address and message" style="width:100%;height:auto;display:block;border-radius:8px"></a>'}}</script>
 <script>{const f=document.querySelector('iframe[data-tally-src]');setTimeout(()=>{if(f&&!f.src)f.src=f.dataset.tallySrc},2500)}</script>
 
+<script>{const roll=document.getElementById('roll'),lcd=roll.parentElement,shots=[...roll.children],N=shots.length,
+hm=document.getElementById('hmode'),hf=document.getElementById('hfile'),hc=document.getElementById('hcount'),hs=document.getElementById('hstamp'),dots=document.getElementById('dots');
+dots.innerHTML=shots.map(()=>'<i></i>').join('');const dl=[...dots.children];let cur=-1;
+const tc=t=>{t=Math.floor(t||0);return '00:'+String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0')};
+const set=i=>{if(i===cur)return;cur=i;const s=shots[i];hf.textContent='100-'+String(i+1).padStart(4,'0');hc.textContent=(i+1)+'/'+N;hs.textContent=s.dataset.stamp;dl.forEach((d,k)=>d.classList.toggle('on',k===i));
+ const v=s.querySelector('video');hm.classList.toggle('rec',!!v);hm.textContent=v?'\u25CF '+tc(v.currentTime):'\u25B6 PLAY';
+ shots.forEach(o=>{const w=o.querySelector('video');if(w&&o!==s)w.pause()});if(v)v.play().catch(()=>{});
+ lcd.classList.remove('chg');void lcd.offsetWidth;lcd.classList.add('chg')};
+shots.forEach(s=>{const v=s.querySelector('video');if(v)v.addEventListener('timeupdate',()=>{if(shots[cur]===s)hm.textContent='\u25CF '+tc(v.currentTime)})});
+const idx=()=>Math.round(roll.scrollLeft/roll.clientWidth);
+let t=false;roll.addEventListener('scroll',()=>{if(!t){t=true;requestAnimationFrame(()=>{t=false;set(Math.max(0,Math.min(N-1,idx())))})}},{passive:true});
+const go=d=>{const i=(idx()+d+N)%N;roll.scrollTo({left:i*roll.clientWidth,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})};
+document.getElementById('cprev').addEventListener('click',()=>go(-1));document.getElementById('cnext').addEventListener('click',()=>go(1));
+roll.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}});
+new IntersectionObserver(es=>es.forEach(e=>{const v=shots[cur]&&shots[cur].querySelector('video');if(v){e.isIntersecting?v.play().catch(()=>{}):v.pause()}}),{threshold:.3}).observe(lcd);
+set(0);}</script>
 <footer><span><img class="hs tw" src="media/deco-redstar.png" alt="" style="width:16px;height:16px;margin:0 6px 0 0">SINH</span><span>Tucson, AZ and Chicago, IL</span></footer>
 </body>
 </html>
