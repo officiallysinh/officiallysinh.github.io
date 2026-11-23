@@ -219,9 +219,17 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 .dots i{width:8px;height:8px;border-radius:50%;background:#3a3a3a;transition:background .2s}
 .dots i.on{background:var(--red);box-shadow:0 0 6px var(--red)}
 @media(prefers-reduced-motion:reduce){.fx::after,.h-mode.rec::first-letter{animation:none}.lcd.chg .roll{animation:none}}
+
+/* devil-tail scroll progress, background */
+#tailbar{position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;z-index:-1;pointer-events:none;overflow:visible}
+.tb-track{fill:none;stroke:rgba(252,252,252,.035);stroke-width:clamp(8px,1.4vw,16px);stroke-linecap:round}
+.tb-fill{fill:none;stroke:#F93434;stroke-width:clamp(8px,1.4vw,16px);stroke-linecap:round;stroke-dasharray:1 1}
+.tb-g{opacity:.36;filter:drop-shadow(0 0 14px rgba(249,52,52,.6))}
+.tb-tip{fill:#F93434;transition:opacity .2s}
 </style>
 </head>
 <body>
+<svg id="tailbar" aria-hidden="true"><path class="tb-track" id="tbt"/><g class="tb-g"><path class="tb-fill" id="tbf" pathLength="1"/><path class="tb-tip" id="tbp" d="M0 16 C-3 8 -10 2 -11 -5 C-6 -2 -2 -2 0 -6 C2 -2 6 -2 11 -5 C10 2 3 8 0 16Z"/></g></svg>
 <div id="grain" aria-hidden="true"></div>
 <nav aria-label="Main"><div class="in">
   <div class="links"><a href="#bio">Bio</a><a href="#music">Music</a><a href="#live">Live</a><a href="#links">Socials</a><a href="#booking">Booking</a></div>
@@ -437,6 +445,15 @@ document.getElementById('cprev').addEventListener('click',()=>go(-1));document.g
 roll.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}});
 new IntersectionObserver(es=>es.forEach(e=>{const v=shots[cur]&&shots[cur].querySelector('video');if(v){e.isIntersecting?v.play().catch(()=>{}):v.pause()}}),{threshold:.3}).observe(lcd);
 set(0);}</script>
+<script>{const svg=document.getElementById('tailbar'),tr=document.getElementById('tbt'),fl=document.getElementById('tbf'),tp=document.getElementById('tbp');
+const draw=()=>{const W=svg.clientWidth,H=svg.clientHeight,de=document.documentElement,max=de.scrollHeight-innerHeight,p=max>0?Math.min(1,Math.max(0,scrollY/max)):0;
+ const A=W*0.34,top=-20,bot=H-60,ph=p*5;let d='';
+ for(let y=top;y<=bot;y+=6){const k=(y-top)/(bot-top),x=W/2+A*(0.6+0.4*k)*Math.sin(y/Math.max(140,H/4.2)+ph);d+=(d?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}
+ tr.setAttribute('d',d);fl.setAttribute('d',d);fl.style.strokeDashoffset=(1-p).toFixed(4);
+ const L=fl.getTotalLength(),l=Math.max(1,p*L),a=fl.getPointAtLength(l),b=fl.getPointAtLength(Math.max(0,l-4)),ang=Math.atan2(a.y-b.y,a.x-b.x)*180/Math.PI-90;
+ const sc=Math.min(4,Math.max(1.8,W/420));tp.setAttribute('transform','translate('+a.x.toFixed(1)+' '+a.y.toFixed(1)+') rotate('+ang.toFixed(1)+') scale('+sc+')');tp.style.opacity=p<0.005?0:1};
+let tk=false;const req=()=>{if(!tk){tk=true;requestAnimationFrame(()=>{tk=false;draw()})}};
+addEventListener('scroll',req,{passive:true});addEventListener('resize',req);new ResizeObserver(req).observe(document.body);draw();}</script>
 <footer><span><img class="hs tw" src="media/deco-redstar.png" alt="" style="width:16px;height:16px;margin:0 6px 0 0">SINH</span><span>Tucson, AZ and Chicago, IL</span></footer>
 </body>
 </html>
