@@ -71,17 +71,15 @@ nav img{height:34px;width:auto}
 .band>.wrap{position:relative;z-index:1}
 .st{position:absolute;pointer-events:none;z-index:0;height:auto}
 .tw{animation:twinkle calc(2 * 60s / 130) ease-in-out infinite alternate}
-.sh{animation:shoot calc(4 * 60s / 130) ease-in-out infinite alternate}
+.sh,.ds{opacity:0;will-change:transform,opacity}
 .d2{animation-delay:calc(-1 * 60s / 130)}
 .blk{filter:brightness(0)}
 .hs{display:inline-block;width:clamp(28px,3vw,40px);height:auto;vertical-align:middle;margin:0 14px;position:relative;top:-4px}
-@media(max-width:600px){.st.sh{opacity:.6}}
 .deco{position:absolute;pointer-events:none;z-index:1;height:auto}
-.ds{width:clamp(80px,11vw,150px);top:clamp(16px,4vw,48px);right:max(16px,calc(50% - 440px));animation:shoot calc(4 * 60s / 130) ease-in-out infinite alternate}
+.ds{width:clamp(80px,11vw,150px)}
 .rs{animation:twinkle calc(2 * 60s / 130) ease-in-out infinite alternate}
 .rs1{width:clamp(40px,5vw,70px);left:max(16px,calc(50% - 400px));top:38%}
 .rs2{width:clamp(28px,3.4vw,46px);right:max(20px,calc(50% - 470px));top:74%;animation-delay:calc(-1 * 60s / 130)}
-@keyframes shoot{0%{transform:translate(-10px,10px);opacity:.55}100%{transform:translate(10px,-10px);opacity:1}}
 @keyframes twinkle{0%{transform:scale(.6) rotate(-12deg);opacity:.6}100%{transform:scale(1.1) rotate(12deg);opacity:1}}
 .rule{display:flow-root;width:180px;max-width:100%;height:clamp(12px,1.3vw,17px);margin:-10px 0 24px;clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.2,.8,.2,1)}
 .rule.c{margin-left:auto;margin-right:auto}
@@ -454,6 +452,18 @@ const draw=()=>{const W=svg.clientWidth,H=svg.clientHeight,de=document.documentE
  const sc=Math.min(4,Math.max(1.8,W/420));tp.setAttribute('transform','translate('+a.x.toFixed(1)+' '+a.y.toFixed(1)+') rotate('+ang.toFixed(1)+') scale('+sc+')');tp.style.opacity=p<0.005?0:1};
 let tk=false;const req=()=>{if(!tk){tk=true;requestAnimationFrame(()=>{tk=false;draw()})}};
 addEventListener('scroll',req,{passive:true});addEventListener('resize',req);new ResizeObserver(req).observe(document.body);draw();}</script>
+<script>{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+/* shooting stars: each one occasionally streaks from the right edge to the left, gently downhill */
+[...document.querySelectorAll('.sh,.ds')].forEach((el,i)=>{const sec=el.parentElement;let vis=false;
+ el.style.left='0';el.style.right='auto';el.style.bottom='auto';
+ new IntersectionObserver(es=>{vis=es[0].isIntersecting},{threshold:.1}).observe(sec);
+ const next=d=>setTimeout(fly,d);
+ const fly=()=>{if(!vis||document.hidden){next(1500);return}
+  const W=sec.clientWidth,H=sec.clientHeight,w=el.offsetWidth||100,dist=W+w*2.5,dy=dist*.4,dur=dist/(1+Math.random()*.4);
+  el.style.top=Math.round(H*(.02+Math.random()*.3))+'px';
+  const a=el.animate([{transform:'translate('+(W+w)+'px,0) rotate(203deg)',opacity:0},{opacity:.7,offset:.15},{opacity:.7,offset:.75},{transform:'translate('+(-w*1.5)+'px,'+dy+'px) rotate(203deg)',opacity:0}],{duration:dur,easing:'linear'});
+  a.onfinish=()=>next(7000+Math.random()*9000)};
+ next(800+i*2200+Math.random()*2500)})}}</script>
 <footer><span><img class="hs tw" src="media/deco-redstar.png" alt="" style="width:16px;height:16px;margin:0 6px 0 0">SINH</span><span>Tucson, AZ and Chicago, IL</span></footer>
 </body>
 </html>
