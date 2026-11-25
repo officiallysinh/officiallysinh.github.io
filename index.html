@@ -459,9 +459,9 @@ addEventListener('scroll',req,{passive:true});addEventListener('resize',req);new
  new IntersectionObserver(es=>{vis=es[0].isIntersecting},{threshold:.1}).observe(sec);
  const next=d=>setTimeout(fly,d);
  const fly=()=>{if(!vis||document.hidden){next(1500);return}
-  const W=sec.clientWidth,H=sec.clientHeight,w=el.offsetWidth||100,dist=W+w*2.5,dy=dist*.4,dur=dist/(1+Math.random()*.4);
-  el.style.top=Math.round(H*(.02+Math.random()*.3))+'px';
-  const a=el.animate([{transform:'translate('+(W+w)+'px,0) rotate(203deg)',opacity:0},{opacity:.7,offset:.15},{opacity:.7,offset:.75},{transform:'translate('+(-w*1.5)+'px,'+dy+'px) rotate(203deg)',opacity:0}],{duration:dur,easing:'linear'});
+  const W=sec.clientWidth,H=sec.clientHeight,w=el.offsetWidth||100,dist=W+w*2.5,dy=dist,dur=dist*1.41/(1+Math.random()*.4);
+  el.style.top=Math.round(H*(-.15+Math.random()*.3))+'px';
+  const a=el.animate([{transform:'translate('+(W+w)+'px,0) rotate(180deg)',opacity:0},{opacity:.7,offset:.15},{opacity:.7,offset:.75},{transform:'translate('+(-w*1.5)+'px,'+dy+'px) rotate(180deg)',opacity:0}],{duration:dur,easing:'linear'});
   a.onfinish=()=>next(7000+Math.random()*9000)};
  next(800+i*2200+Math.random()*2500)})}}</script>
 <footer><span><img class="hs tw" src="media/deco-redstar.png" alt="" style="width:16px;height:16px;margin:0 6px 0 0">SINH</span><span>Tucson, AZ and Chicago, IL</span></footer>
