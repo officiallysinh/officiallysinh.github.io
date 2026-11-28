@@ -218,6 +218,24 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 .dots i.on{background:var(--red);box-shadow:0 0 6px var(--red)}
 @media(prefers-reduced-motion:reduce){.fx::after,.h-mode.rec::first-letter{animation:none}.lcd.chg .roll{animation:none}}
 
+/* load intro: shows only while the page loads; spinning red star on black, red flash + star burst on exit */
+#intro{position:fixed;inset:0;z-index:200;pointer-events:none;background:#000;display:grid;place-items:center;overflow:hidden}
+#intro::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 50% 50%,rgba(249,52,52,.5),transparent 42%);animation:ipulse .7s ease-in-out infinite alternate}
+#intro svg{fill:#F93434;height:auto}
+#intro .m{position:relative;width:clamp(70px,12vw,130px);filter:drop-shadow(0 0 18px #F93434);animation:ispin 1.4s linear infinite}
+#intro .s{position:absolute;width:clamp(16px,2.6vw,30px);animation:itw .7s ease-in-out infinite alternate}
+#intro .s:nth-child(odd){animation-delay:-.35s}
+#intro.out{animation:iflash .5s ease forwards}
+#intro.out .m{animation:iburst .5s ease-in forwards}
+#intro.out .s{animation:iout .25s forwards}
+@keyframes ipulse{from{opacity:.35;transform:scale(.9)}to{opacity:1;transform:scale(1.1)}}
+@keyframes ispin{to{rotate:360deg}}
+@keyframes itw{from{opacity:.15;scale:.5}to{opacity:1;scale:1}}
+@keyframes iburst{to{scale:9;opacity:0}}
+@keyframes iflash{0%{background:#F93434}30%{background:#000;opacity:1}100%{opacity:0;visibility:hidden}}
+@keyframes iout{to{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){#intro *,#intro::before{animation:none!important}#intro.out{animation:iout .3s forwards}}
+
 /* devil-tail scroll progress, background */
 #tailbar{position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;z-index:-1;pointer-events:none;overflow:visible}
 .tb-track{fill:none;stroke:rgba(252,252,252,.035);stroke-width:clamp(8px,1.4vw,16px);stroke-linecap:round}
@@ -228,7 +246,16 @@ footer{padding:22px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 </head>
 <body>
 <svg id="tailbar" aria-hidden="true"><path class="tb-track" id="tbt"/><g class="tb-g"><path class="tb-fill" id="tbf" pathLength="1"/><path class="tb-tip" id="tbp" d="M0 16 C-3 8 -10 2 -11 -5 C-6 -2 -2 -2 0 -6 C2 -2 6 -2 11 -5 C10 2 3 8 0 16Z"/></g></svg>
+<div id="intro" aria-hidden="true">
+  <svg class="s" viewBox="-50 -50 100 100" style="left:18%;top:22%"><path d="M0-50C4-14 14-4 50 0C14 4 4 14 0 50C-4 14-14 4-50 0C-14-4-4-14 0-50Z"/></svg>
+  <svg class="s" viewBox="-50 -50 100 100" style="right:16%;top:30%"><path d="M0-50C4-14 14-4 50 0C14 4 4 14 0 50C-4 14-14 4-50 0C-14-4-4-14 0-50Z"/></svg>
+  <svg class="s" viewBox="-50 -50 100 100" style="left:26%;bottom:20%"><path d="M0-50C4-14 14-4 50 0C14 4 4 14 0 50C-4 14-14 4-50 0C-14-4-4-14 0-50Z"/></svg>
+  <svg class="s" viewBox="-50 -50 100 100" style="right:24%;bottom:16%"><path d="M0-50C4-14 14-4 50 0C14 4 4 14 0 50C-4 14-14 4-50 0C-14-4-4-14 0-50Z"/></svg>
+  <svg class="s" viewBox="-50 -50 100 100" style="left:48%;top:12%"><path d="M0-50C4-14 14-4 50 0C14 4 4 14 0 50C-4 14-14 4-50 0C-14-4-4-14 0-50Z"/></svg>
+  <svg class="m" viewBox="-50 -50 100 100"><path d="M0-50C4-14 14-4 50 0C14 4 4 14 0 50C-4 14-14 4-50 0C-14-4-4-14 0-50Z"/></svg>
+</div>
 <div id="grain" aria-hidden="true"></div>
+<script>{const i=document.getElementById('intro'),t0=performance.now();let s=false;const out=()=>{if(s||!i)return;s=true;setTimeout(()=>{i.classList.add('out');setTimeout(()=>i.remove(),600)},Math.max(0,250-(performance.now()-t0)))};if(document.readyState==='complete')out();else addEventListener('load',out);setTimeout(out,4000)}</script>
 <nav aria-label="Main"><div class="in">
   <div class="links"><a href="#bio">Bio</a><a href="#music">Music</a><a href="#live">Live</a><a href="#links">Socials</a><a href="#booking">Booking</a></div>
 </div></nav>
